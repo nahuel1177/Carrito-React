@@ -2,16 +2,15 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header.js';
 import Main from './components/Main';
-import ItemsListContainer from './components/ItemListContainer'
+import { BrowserRouter } from 'react-router-dom';
 
 const App =() => {
   return (
-    <>
+    <BrowserRouter>
       <Header/>
-      <ItemsListContainer greeting="Las Mejores Ofertas en Hardware"/>
       <Main/>
       <Footer/>
-    </>
+    </BrowserRouter>
   )
 }
 

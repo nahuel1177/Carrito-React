@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import logo from "../resources/images/logo.png"
+
 const Header = () => {
 
     const isHeader = true;

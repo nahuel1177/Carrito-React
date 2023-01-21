@@ -1,6 +1,6 @@
 import Badge from 'react-bootstrap/Badge';
 
-const CartWidget= () => {
+const CartWidget = () => {
     return(
             <div className='shopping-cart'>
             <span className='material-icons'>shopping_cart</span>

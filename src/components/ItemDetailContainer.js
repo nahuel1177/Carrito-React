@@ -1,59 +1,45 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-const ItemListContainer = () => {
+const ItemDetailContainer = () => {
 
+    const [producto, setProducto] = useState({})
     const [load, setLoad] = useState(false)
-    const [productos, setProductos] = useState([])
-    const params = useParams()
+    const props = useParams()
 
     useEffect(() => {
 
-        const pedido = fetch("./productos.json")
+        const pedido = fetch("../productos.json")
 
         pedido
             .then((respuesta) => {
 
                 const productos = respuesta.json()
-
                 return productos
 
             })
             .then((productos) => {
-
-
-                if (params.categoria) {
-
-                    setProductos(productos.filter(prod => prod.tipo === params.categoria))
-                    setLoad(true)
-
-                }else{
-
-                setProductos(productos)
-                setLoad(true)
                 
-                }
+                setProducto(productos.find((prod) => prod.id === parseInt(props.id)))
+                setLoad(true)
 
             })
             .catch((error) => {
-
                 console.log(error)
-
             })
 
-    }, [params.categoria])
+
+    }, [producto , props.id])
 
     return (
-
         <div className="row row-cols-1 row-cols-md-3 g-4" id="product-container">
 
             {load ? null : 'Cargando...'}
-            <ItemList productos={productos} />
+            <ItemDetail producto={producto} />
 
         </div>
-
     )
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer
