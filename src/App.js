@@ -1,16 +1,19 @@
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import CartProvider from './components/CartProvider';
 import Footer from './components/Footer';
 import Header from './components/Header.js';
 import Main from './components/Main';
-import { BrowserRouter } from 'react-router-dom';
 
-const App =() => {
+const App = () => {
   return (
-    <BrowserRouter>
-      <Header/>
-      <Main/>
-      <Footer/>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 

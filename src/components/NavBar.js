@@ -9,7 +9,7 @@ const NavBar = (props) => {
             <nav className="header__navbar">
                 <Link className="header__link" to="/">Inicio</Link>
                 <Categories />
-                <CartWidget />
+                <Link className="header__link" to="/carrito"><CartWidget /></Link>
             </nav>
         );
     } else {

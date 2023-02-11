@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
 
             })
             .then((productos) => {
-                
+
                 setProducto(productos.find((prod) => prod.id === parseInt(props.id)))
                 setLoad(true)
 
@@ -30,14 +30,12 @@ const ItemDetailContainer = () => {
             })
 
 
-    }, [producto , props.id])
+    }, [producto, props.id])
 
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4" id="product-container">
-
-            {load ? null : 'Cargando...'}
-            <ItemDetail producto={producto} />
-
+                {load ? null : 'Cargando...'}
+                <ItemDetail producto={producto} />
         </div>
     )
 }

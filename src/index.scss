@@ -32,8 +32,40 @@ a {
   color: steelblue;
 }
 
+#amount{
+  margin: 7px;
+}
+
+#amount-container{
+  display: flex;
+  margin: auto;
+}
+
 body h1 {
   text-align: center;
+}
+
+#btn-add{
+  margin: auto;
+  margin-bottom: 1.5rem;
+  width: 160px;
+}
+
+#btn-count{
+  display: flex;
+  width: 35px;
+}
+
+.btn:disabled{
+  background-color: #9ca2aa;
+  border-color: #9ca2aa;
+}
+
+.btn-primary {
+  --bs-btn-bg: steelblue;
+  --bs-btn-border-color: steelblue;
+  --bs-btn-hover-bg: #21549feb;
+  --bs-btn-hover-border-color: #21549feb;
 }
 
 .card {
@@ -42,6 +74,20 @@ body h1 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   text-align: center;
+}
+
+#checkout-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+    
+    & #button{
+      display: flex;
+      justify-content: center;
+    }
 }
 
 code {
@@ -102,6 +148,14 @@ header > nav > a {
   align-items: center;
 }
 
+#itemList-container{
+  width: auto;
+}
+
+#link-compra{
+  color:#fff;
+}
+
 main {
   flex-grow: 1;
   padding: 0.5 rem;
@@ -128,12 +182,11 @@ main {
 
 #product-container {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
-  margin-left: 6rem;
-  margin-right: 6rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .shopping-cart {
