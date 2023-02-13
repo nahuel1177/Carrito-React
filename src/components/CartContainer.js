@@ -7,13 +7,14 @@ const CartContainer = () => {
 
   const { totalProducts } = useContext(contexto)
   const [cartEmpty, setCartEmpty] = useState()
-
-  useEffect(() => {
   
+  
+  useEffect(() => {
+    
     totalProducts === 0 ? setCartEmpty(true) : setCartEmpty(false)
    
   },[totalProducts])
-
+  
   return (
 
     <>

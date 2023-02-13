@@ -19,7 +19,7 @@ const Sale = () => {
     <div className="row row-cols-1 row-cols-md-2 g-5" id="cart-ex-container">
 
       <Container id="cart-in-container">
-        <Row>{user.name} {user.surname} - {user.email}</Row>
+        <div id="title-consumer">Comprador: {user.name} {user.surname} - {user.email}</div>
         <Row>
           <Col></Col>
           <Col>Dispositivo</Col>
@@ -45,7 +45,9 @@ const Sale = () => {
           <Col>Total: ${totalPrice}</Col>
           <Col></Col>
         </Row>
-        <Button onClick={handleClick} variant='primary' id="btn-compra">Volver</Button>
+        <div id="btn-compra">
+          <Button onClick={handleClick} variant='primary'>Volver</Button>
+        </div>
       </Container>
     </div>
 
