@@ -1,42 +1,43 @@
+import { collection, getDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { db } from "../firebase";
+import { toast } from 'react-toastify';
 import ItemDetail from "./ItemDetail";
+
+
 
 const ItemDetailContainer = () => {
 
+    const { id } = useParams()
     const [product, setProduct] = useState({})
-    const [products, setProducts] = useState([])
-    const [load, setLoad] = useState(false)
-    const props = useParams()
 
     useEffect(() => {
 
-        const pedido = fetch("../productos.json")
+        //toast.info("Cargando Producto...")
+
+        const productsCollection = collection(db,"products")
+        const referencia = doc(productsCollection, id)
+        const pedido = getDoc(referencia)
 
         pedido
             .then((respuesta) => {
-
-                const productos = respuesta.json()
-                return productos
-
-            })
-            .then((productos) => {
-                setProducts(productos)
-                setProduct(productos.find((prod) => prod.id === parseInt(props.id)))
-                setLoad(true)
-
+                const producto = {...respuesta.data(), id: respuesta.id}
+                setProduct(producto)
+                //toast.dismiss()
+                //toast.success("Producto cargado!")
             })
             .catch((error) => {
-                console.log(error)
+                //toast.dismiss()
+                //toast.error("Error al cargar producto!")
             })
 
 
-    }, [product, props.id])
+    }, [product, id])
 
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4" id="product-container">
-                {load ? null : 'Cargando...'}
-                <ItemDetail producto={product} />
+            <ItemDetail producto={product} />
         </div>
     )
 }

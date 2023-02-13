@@ -1,55 +1,50 @@
+import { collection, getDocs, where, query } from "firebase/firestore";
+import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
 
-    const [load, setLoad] = useState(false)
-    const [productos, setProductos] = useState([])
+    const [products, setProducts] = useState([])
     const params = useParams()
 
     useEffect(() => {
 
-        const pedido = fetch("./productos.json")
+        //toast.info("Cargando Productos...")
+        let filter
+
+        const productsCollection = collection(db, "products")
+        
+        if(!params.categoria){
+            filter = productsCollection
+        }else{
+            filter = query(productsCollection, where('type', '==', params.categoria))
+        }
+        
+        const pedido = getDocs(filter)
 
         pedido
             .then((respuesta) => {
 
-                const productos = respuesta.json()
-
-                return productos
-
+                const items = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+                setProducts(items)
+                //toast.dismiss()
+                //toast.success("Productos cargados!")
             })
-            .then((productos) => {
 
-
-                if (params.categoria) {
-
-                    setProductos(productos.filter(prod => prod.tipo === params.categoria))
-                    setLoad(true)
-
-                }else{
-
-                setProductos(productos)
-                setLoad(true)
-                
-                }
-
-            })
             .catch((error) => {
-
-                console.log(error)
-
+                toast.error("Error al cargar productos!")
             })
 
-    }, [params.categoria])
+    }, [params.categoria, products])
 
     return (
 
         <div className="row row-cols-1 row-cols-md-3 g-4" id="product-container">
 
-            {load ? null : 'Cargando...'}
-            <ItemList productos={productos} />
+            <ItemList productos={products} />
 
         </div>
 

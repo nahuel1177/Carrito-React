@@ -1,3 +1,4 @@
+import { db } from "../firebase"
 import { Button, Container, Col, Row } from 'react-bootstrap'
 import { memo } from "react";
 import { useContext } from 'react';
@@ -31,9 +32,9 @@ const Sale = () => {
           return (
             <Row key={producto.id} className='cartAlign bgCard'>
               <Col></Col>
-              <Col>{producto.tipo}</Col>
+              <Col>{producto.type}</Col>
               <Col>{producto.stock}</Col>
-              <Col>${producto.precio} c/u</Col>
+              <Col>${producto.price} c/u</Col>
               <Col></Col>
             </Row>
           )
