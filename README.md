@@ -32,8 +32,8 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### Librerias utilizadas
-Boostrap React para botones
-Icons-material para inconos
-SCSS  para estilos de difrentes componentes
-Toastify para mensajes emnergentes
-Firebase para la DB
+- Boostrap React para botones
+- Icons-material para inconos
+- SCSS  para estilos de difrentes componentes
+- Toastify para mensajes emnergentes
+- Firebase para la DB
