@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Sale = () => {
 
-  const { user, cart, totalPrice, cleanCart } = useContext(contexto)
+  const { user, cart, totalPrice, cleanCart, id } = useContext(contexto)
   const navigate = useNavigate()
 
   const handleClick = () => {
@@ -20,7 +20,7 @@ const Sale = () => {
     <div className="row row-cols-1 row-cols-md-2 g-5" id="cart-ex-container">
 
       <Container id="cart-in-container">
-        <div id="title-consumer">Comprador: {user.name} {user.surname} - {user.email}</div>
+        <div id="title-consumer">Comprador: {user.name} {user.surname} - {user.email} Venta: {id}</div>
         <Row>
           <Col></Col>
           <Col>Dispositivo</Col>
