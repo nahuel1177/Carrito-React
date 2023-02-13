@@ -3,7 +3,6 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
-import Notiflix from 'notiflix';
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
@@ -12,33 +11,32 @@ const ItemListContainer = () => {
     const params = useParams()
 
     useEffect(() => {
-
-        //toast.info("Cargando Productos...")
+        console.log("Inicio")
+        toast.info("Cargando Productos...")
         let filter
 
         const productsCollection = collection(db, "products")
-        
-        if(!params.categoria){
+
+        if (!params.categoria) {
             filter = productsCollection
-        }else{
+        } else {
             filter = query(productsCollection, where('type', '==', params.categoria))
         }
-        
+
         const pedido = getDocs(filter)
-        console.log(pedido)
+
         pedido
             .then((respuesta) => {
 
                 const items = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
                 setProducts(items)
-                //toast.dismiss()
-                //toast.success("Productos cargados!")
-                console.log("Productos Cargados")
+                toast.dismiss()
+                toast.success("Productos cargados!")
             })
+
             .catch((error) => {
-                
-                Notiflix.Notify.failure("Error al cargar productos!")
-                console.log("Error Notificacion")
+                toast.dismiss()
+                toast.error("Error al cargar productos!")
             })
 
     }, [params.categoria, products])
