@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        //toast.info("Cargando Producto...")
+        toast.info("Cargando Producto...")
 
         const productsCollection = collection(db,"products")
         const referencia = doc(productsCollection, id)
@@ -24,16 +24,14 @@ const ItemDetailContainer = () => {
             .then((respuesta) => {
                 const producto = {...respuesta.data(), id: respuesta.id}
                 setProduct(producto)
-                //toast.dismiss()
-                //toast.success("Producto cargado!")
+                toast.dismiss()
+                toast.success("Producto cargado!")
             })
             .catch((error) => {
-                //toast.dismiss()
-                //toast.error("Error al cargar producto!")
+                toast.dismiss()
+                toast.error("Error al cargar producto!")
             })
-
-
-    }, [product, id])
+    }, [id])
 
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4" id="product-container">

@@ -1,24 +1,32 @@
 import { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { contexto } from "./CartProvider";
 import CartList from './CartList'
-
+import ItemListContainer from './ItemListContainer';
+import { useNavigate } from 'react-router-dom';
 
 const CartContainer = () => {
 
   const { totalProducts } = useContext(contexto)
   const [cartEmpty, setCartEmpty] = useState()
+  const navigate = useNavigate()
+  
   
   
   useEffect(() => {
     
-    totalProducts === 0 ? setCartEmpty(true) : setCartEmpty(false)
+    if(totalProducts === 0 ){
+      setCartEmpty(true)
+      toast.error("El carrito está vacio!")
+      navigate('/')
+    }else{setCartEmpty(false)}
    
-  },[totalProducts])
+  },[])
   
   return (
 
     <>
-      {cartEmpty ? <div>¡El carrito está vacio!</div> : <CartList />}
+      {cartEmpty ? <ItemListContainer/> : <CartList />}
     </>
 
   )

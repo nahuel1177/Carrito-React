@@ -33,7 +33,6 @@ const ItemCount = ({ productos, producto, stock, onAdd }) => {
 
     return (
         <>
-            {/* <Button onClick={handlerResetear}>reset</Button> */}
             <div id="amount-container">
                 <Button onClick={handleSumar} disabled={plusState} id="btn-count">+</Button>
                 <div id="amount">{amount}</div>

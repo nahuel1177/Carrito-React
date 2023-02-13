@@ -6,10 +6,11 @@ import { useContext } from 'react';
 import { contexto } from "./CartProvider";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { toast } from 'react-toastify';
 
 const CheckOut = () => {
 
-    const { setUser, cart, setId } = useContext(contexto)
+    const { cart, setId } = useContext(contexto)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [email, setEmail] = useState("")
@@ -31,20 +32,19 @@ const CheckOut = () => {
 
         const salesCollection = collection(db, "sales")
         const pedido = addDoc(salesCollection, sale)
-        console.log(pedido)
         pedido
 
             .then((respuesta) => {
 
                 const id = respuesta.id
                 setId(id)
-                
-                //toast.dismiss()
-                //toast.success("Producto cargado!")
+                toast.dismiss()
+                toast.success("Venta Exitosa!")
             })
             .catch((error) => {
-                //toast.dismiss()
-                //toast.error("Error al cargar producto!")
+                setId("Vacio")
+                toast.dismiss()
+                toast.error("Error al procesar venta!")
             })
             navigate('/venta')
     }

@@ -27,7 +27,7 @@ const CartProvider = ({ children }) => {
       setTotalProducts(totalProducts + contador)
       addToast(producto)
       setCart(copia)
-    
+
     } else {
 
       const findedProduct = findProduct(producto)
@@ -40,11 +40,11 @@ const CartProvider = ({ children }) => {
 
     }
   }
-  const addToast = (producto) =>{
+  const addToast = (producto) => {
 
-    const nombre = '¡Agregaste '+ producto.type + ' ' + producto.description + ' al carrito!'
-    toast.success(nombre,{
-        position: toast.POSITION.TOP_CENTER
+    const nombre = '¡Agregaste ' + producto.type + ' ' + producto.description + ' al carrito!'
+    toast.success(nombre, {
+      position: toast.POSITION.TOP_CENTER
     })
   }
 
@@ -57,12 +57,12 @@ const CartProvider = ({ children }) => {
   const deleteProduct = (producto) => {
     const copia = [...cart]
     copia.pop(producto)
-    toast.warning('¡Eliminaste ' + producto.type + ' ' + producto.description + ' del carrito!',{
+    toast.warning('¡Eliminaste ' + producto.type + ' ' + producto.description + ' del carrito!', {
       position: toast.POSITION.TOP_CENTER
     })
-    setTotalProducts(totalProducts - producto.stock) 
+    setTotalProducts(totalProducts - producto.stock)
     setCart(copia)
-    if(cart.lenght===0){
+    if (cart.lenght === 0) {
       cleanCart()
     }
   }
@@ -83,7 +83,6 @@ const CartProvider = ({ children }) => {
   }
 
   const findProduct = (producto) => {
-    console.log(producto.id)
     return cart.find((item) => item.id === producto.id)
   }
 

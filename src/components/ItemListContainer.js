@@ -11,18 +11,18 @@ const ItemListContainer = () => {
     const params = useParams()
 
     useEffect(() => {
-
-        //toast.info("Cargando Productos...")
+        console.log("Inicio")
+        toast.info("Cargando Productos...")
         let filter
 
         const productsCollection = collection(db, "products")
-        
-        if(!params.categoria){
+
+        if (!params.categoria) {
             filter = productsCollection
-        }else{
+        } else {
             filter = query(productsCollection, where('type', '==', params.categoria))
         }
-        
+
         const pedido = getDocs(filter)
 
         pedido
@@ -30,11 +30,12 @@ const ItemListContainer = () => {
 
                 const items = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
                 setProducts(items)
-                //toast.dismiss()
-                //toast.success("Productos cargados!")
+                toast.dismiss()
+                toast.success("Productos cargados!")
             })
 
             .catch((error) => {
+                toast.dismiss()
                 toast.error("Error al cargar productos!")
             })
 
