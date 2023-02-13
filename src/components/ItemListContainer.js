@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
@@ -24,7 +25,7 @@ const ItemListContainer = () => {
         }
         
         const pedido = getDocs(filter)
-
+        console.log(pedido)
         pedido
             .then((respuesta) => {
 
@@ -32,10 +33,12 @@ const ItemListContainer = () => {
                 setProducts(items)
                 //toast.dismiss()
                 //toast.success("Productos cargados!")
+                console.log("Productos Cargados")
             })
-
             .catch((error) => {
-                toast.error("Error al cargar productos!")
+                
+                Notiflix.Notify.failure("Error al cargar productos!")
+                console.log("Error Notificacion")
             })
 
     }, [params.categoria, products])

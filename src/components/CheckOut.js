@@ -43,6 +43,7 @@ const CheckOut = () => {
                 //toast.success("Producto cargado!")
             })
             .catch((error) => {
+                setId("Vacio")
                 //toast.dismiss()
                 //toast.error("Error al cargar producto!")
             })
