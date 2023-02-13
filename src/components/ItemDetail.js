@@ -1,9 +1,11 @@
-import Card from 'react-bootstrap/Card';
-import ItemCount from './ItemCount';
+import { db } from "../firebase"
 import { useContext } from 'react';
 import { contexto } from "./CartProvider";
+import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
 
-const ItemDetail = (props) => {
+
+const ItemDetail = ({producto}) => {
 
     const { addProduct } = useContext(contexto)
 
@@ -13,17 +15,17 @@ const ItemDetail = (props) => {
 
     return (
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={"../" + props.producto.imagen} />
+                <Card.Img variant="top" src={"../" + producto.image} />
                 <Card.Body>
-                    <Card.Title>{props.producto.tipo}</Card.Title>
+                    <Card.Title>{producto.type}</Card.Title>
                     <Card.Text>
-                        {props.producto.descripcion}
+                        {producto.description}
                     </Card.Text>
                     <Card.Text>
-                        ${props.producto.precio}
+                        ${producto.price}
                     </Card.Text>
                 </Card.Body>
-                <ItemCount producto={props.producto} stock={props.producto.stock} onAdd={onAdd} />
+                <ItemCount producto={producto} stock={producto.stock} onAdd={onAdd} />
             </Card>
     )
 }

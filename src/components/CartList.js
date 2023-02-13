@@ -36,10 +36,10 @@ const CartList = () => {
                 {cart.map((producto) => {
                     return (
                         <Row key={producto.id} className='cartAlign bgCard'>
-                            <Col><img src={producto.imagen} className='imgCart' alt='' width="80px" /></Col>
-                            <Col>{producto.tipo}</Col>
+                            <Col><img src={producto.image} className='imgCart' alt='' width="80px" /></Col>
+                            <Col>{producto.type}</Col>
                             <Col>{producto.stock}</Col>
-                            <Col>${producto.precio}</Col>
+                            <Col>${producto.price}</Col>
                             <Col><Button onClick={handleClick(producto)} variant='secondary'>{<DeleteIcon />}</Button></Col>
                         </Row>
                     )

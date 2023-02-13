@@ -1,242 +1,246 @@
 [
         {
-            "id": 0,
-            "tipo": "Desktop",
-            "descripcion": "i7",
-            "precio": 15000,
-            "imagen": "resources/images/desktop1.png",
-            "stock":20
+            "type": "Desktop",
+            "description": "i7",
+            "price": 15000,
+            "image": "resources/images/desktop1.png",
+            "stock":20,
+            "amount":0
         },
         {
-            "id": 1,
-            "tipo": "Desktop",
-            "descripcion": "Ryzen 5",
-            "precio": 13000,
-            "imagen": "resources/images/desktop2.png",
-            "stock":10
+            "type": "Desktop",
+            "description": "Ryzen 5",
+            "price": 13000,
+            "image": "resources/images/desktop2.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 2,
-            "tipo": "Laptop",
-            "descripcion": "i7",
-            "precio": 15000,
-            "imagen": "resources/images/laptop1.png",
-            "stock":15
+            "type": "Laptop",
+            "description": "i7",
+            "price": 15000,
+            "image": "resources/images/laptop1.png",
+            "stock":15,
+            "amount":0
         },
         {
-            "id": 3,
-            "tipo": "Laptop",
-            "descripcion": "Ryzen 5",
-            "precio": 15000,
-            "imagen": "resources/images/laptop2.png",
-            "stock":12
+            "type": "Laptop",
+            "description": "Ryzen 5",
+            "price": 15000,
+            "image": "resources/images/laptop2.png",
+            "stock":12,
+            "amount":0
         },
         {
-            "id": 4,
-            "tipo": "Teclado",
-            "descripcion": "K1",
-            "precio": 120,
-            "imagen": "resources/images/key1.png",
-            "stock":30
+            "type": "Teclado",
+            "description": "K1",
+            "price": 120,
+            "image": "resources/images/key1.png",
+            "stock":30,
+            "amount":0
         },
         {
-            "id": 5,
-            "tipo": "Teclado",
-            "descripcion": "K2",
-            "precio": 150,
-            "imagen": "resources/images/key2.png",
-            "stock":30
+            "type": "Teclado",
+            "description": "K2",
+            "price": 150,
+            "image": "resources/images/key2.png",
+            "stock":30,
+            "amount":0
         },
         {
-            "id": 6,
-            "tipo": "Mouse",
-            "descripcion": "G1",
-            "precio": 100,
-            "imagen": "resources/images/mouse1.png",
-            "stock":30
+            "type": "Mouse",
+            "description": "G1",
+            "price": 100,
+            "image": "resources/images/mouse1.png",
+            "stock":30,
+            "amount":0
         },
         {
-            "id": 7,
-            "tipo": "Mouse",
-            "descripcion": "CABJ",
-            "precio": 150,
-            "imagen": "resources/images/mouse2.png",
-            "stock":30
+            "type": "Mouse",
+            "description": "CABJ",
+            "price": 150,
+            "image": "resources/images/mouse2.png",
+            "stock":30,
+            "amount":0
         },
         {
-            "id": 8,
-            "tipo": "Memoria",
-            "descripcion": " 8 GB",
-            "precio": 190,
-            "imagen": "resources/images/ram1.png",
-            "stock":10
+            "type": "Memoria",
+            "description": " 8 GB",
+            "price": 190,
+            "image": "resources/images/ram1.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 9,
-            "tipo": "Memoria",
-            "descripcion": "16 GB",
-            "precio": 280,
-            "imagen": "resources/images/ram2.png",
-            "stock":10
+            "type": "Memoria",
+            "description": "16 GB",
+            "price": 280,
+            "image": "resources/images/ram2.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 10,
-            "tipo": "Almacenamiento",
-            "descripcion" : "SSD 128 GB",
-            "precio": 4570,
-            "imagen": "resources/images/ssd128.png",
-            "stock":8
+
+            "type": "Almacenamiento",
+            "description" : "SSD 128 GB",
+            "price": 4570,
+            "image": "resources/images/ssd128.png",
+            "stock":8,
+            "amount":0
         },
         {
-            "id": 11,
-            "tipo": "Almacenamiento",
-            "descripcion": "SSD 256 GB",
-            "precio": 7800,
-            "imagen": "resources/images/ssd256.png",
-            "stock":6
+
+            "type": "Almacenamiento",
+            "description": "SSD 256 GB",
+            "price": 7800,
+            "image": "resources/images/ssd256.png",
+            "stock":6,
+            "amount":0
         },
         {
-            "id": 12,
-            "tipo": "Almacenamiento",
-            "descripcion":"SSD 512 GB",
-            "precio": 12090,
-            "imagen": "resources/images/ssd512.png",
-            "stock":10
+
+            "type": "Almacenamiento",
+            "description":"SSD 512 GB",
+            "price": 12090,
+            "image": "resources/images/ssd512.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 13,
-            "tipo": "Almacenamiento",
-            "descripcion": "HDD 500 GB",
-            "precio": 12090,
-            "imagen": "resources/images/hdd500.png",
-            "stock":5
+
+            "type": "Almacenamiento",
+            "description": "HDD 500 GB",
+            "price": 12090,
+            "image": "resources/images/hdd500.png",
+            "stock":5,
+            "amount":0
         },
         {
-            "id": 14,
-            "tipo": "Almacenamiento",
-            "descripcion": "HDD 1 TB",
-            "precio": 15090,
-            "imagen": "resources/images/hdd1.png",
-            "stock":10
+            "type": "Almacenamiento",
+            "description": "HDD 1 TB",
+            "price": 15090,
+            "image": "resources/images/hdd1.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 15,
-            "tipo": "Video", 
-            "descripcion": "4 GB",
-            "precio": 15670,
-            "imagen": "resources/images/video1.png",
-            "stock":10
+            "type": "Video", 
+            "description": "4 GB",
+            "price": 15670,
+            "image": "resources/images/video1.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 16,
-            "tipo": "Video",
-            "descripcion": "6 GB",
-            "precio": 19990,
-            "imagen": "resources/images/video2.png",
-            "stock":20
+            "type": "Video",
+            "description": "6 GB",
+            "price": 19990,
+            "image": "resources/images/video2.png",
+            "stock":20,
+            "amount":0
         },
         {
-            "id": 17,
-            "tipo": "Video",
-            "descripcion": "8 GB",
-            "precio": 24599,
-            "imagen": "resources/images/video3.png",
-            "stock":20
+            "type": "Video",
+            "description": "8 GB",
+            "price": 24599,
+            "image": "resources/images/video3.png",
+            "stock":20,
+            "amount":0
         },
         {
-            "id": 18,
-            "tipo": "Motherboard",
-            "descripcion":"A320",
-            "precio": 14599,
-            "imagen": "resources/images/mother1.png",
-            "stock":20
+            "type": "Motherboard",
+            "description":"A320",
+            "price": 14599,
+            "image": "resources/images/mother1.png",
+            "stock":20,
+            "amount":0
         },
         {
-            "id": 19,
-            "tipo":"Motherboard",
-            "descripcion": "B450",
-            "precio": 16999,
-            "imagen": "resources/images/mother2.png",
-            "stock":10
+            "type":"Motherboard",
+            "description": "B450",
+            "price": 16999,
+            "image": "resources/images/mother2.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 20,
-            "tipo": "Procesador",
-            "descripcion": "I7",
-            "precio": 24599,
-            "imagen": "resources/images/cpu1.png",
-            "stock":20
+            "type": "Procesador",
+            "description": "I7",
+            "price": 24599,
+            "image": "resources/images/cpu1.png",
+            "stock":20,
+            "amount":0
         },
         {
-            "id": 21,
-            "tipo":"Procesador",
-            "descripcion": "Ryzen 5",
-            "precio": 20399,
-            "imagen": "resources/images/cpu2.png",
-            "stock":15
+            "type":"Procesador",
+            "description": "Ryzen 5",
+            "price": 20399,
+            "image": "resources/images/cpu2.png",
+            "stock":15,
+            "amount":0
         },
         {
-            "id": 22,
-            "tipo": "Monitor",
-            "descripcion": "20",
-            "precio": 10399,
-            "imagen": "resources/images/monitor20.png",
-            "stock":12
+            "type": "Monitor",
+            "description": "20",
+            "price": 10399,
+            "image": "resources/images/monitor20.png",
+            "stock":12,
+            "amount":0
         },
         {
-            "id": 23,
-            "tipo": "Monitor",
-            "descripcion": "27",
-            "precio": 17399,
-            "imagen": "resources/images/monitor27.png",
-            "stock":10
+            "type": "Monitor",
+            "description": "27",
+            "price": 17399,
+            "image": "resources/images/monitor27.png",
+            "stock":10,
+            "amount":0
         },
         {
-            "id": 24,
-            "tipo": "Cooler",
-            "descripcion": "Negro",
-            "precio": 50,
-            "imagen": "resources/images/cooler1.png",
-            "stock":40
+            "type": "Cooler",
+            "description": "Negro",
+            "price": 50,
+            "image": "resources/images/cooler1.png",
+            "stock":40,
+            "amount":0
         },
         {
-            "id": 25,
-            "tipo": "Cooler",
-            "descripcion": "Amarillo",
-            "precio": 80,
-            "imagen": "resources/images/cooler2.png",
-            "stock":45
+            "type": "Cooler",
+            "description": "Amarillo",
+            "price": 80,
+            "image": "resources/images/cooler2.png",
+            "stock":45,
+            "amount":0
         },
         {
-            "id": 26,
-            "tipo": "Fuente",
-            "descripcion": "500 Watts",
-            "precio": 180,
-            "imagen": "resources/images/fuente1.png",
-            "stock":25
+            "type": "Fuente",
+            "description": "500 Watts",
+            "price": 180,
+            "image": "resources/images/fuente1.png",
+            "stock":25,
+            "amount":0
         },
         {
-            "id": 27,
-            "tipo": "Fuente",
-            "descripcion": "850 Watts",
-            "precio": 280,
-            "imagen": "resources/images/fuente2.png",
-            "stock":12
+            "type": "Fuente",
+            "description": "850 Watts",
+            "price": 280,
+            "image": "resources/images/fuente2.png",
+            "stock":12,
+            "amount":0
         },
         {
-            "id": 28,
-            "tipo": "Gabinete",
-            "descripcion": "A1",
-            "precio": 450,
-            "imagen": "resources/images/gabinete1.png",
-            "stock":11
+            "type": "Gabinete",
+            "description": "A1",
+            "price": 450,
+            "image": "resources/images/gabinete1.png",
+            "stock":11,
+            "amount":0
         },
         {
-            "id": 29,
-            "tipo": "Gabinete",
-            "descripcion": "A2",
-            "precio": 500,
-            "imagen": "resources/images/gabinete2.png",
-            "stock":17
+            "type": "Gabinete",
+            "description": "A2",
+            "price": 500,
+            "image": "resources/images/gabinete2.png",
+            "stock":17,
+            "amount":0
         }
 ]

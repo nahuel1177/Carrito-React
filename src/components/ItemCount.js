@@ -1,3 +1,4 @@
+import { db } from "../firebase"
 import { useState } from "react"
 import { Button } from 'react-bootstrap';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -29,10 +30,6 @@ const ItemCount = ({ productos, producto, stock, onAdd }) => {
     const handleAgregar = () => {
         onAdd(producto, amount)
     }
-
-    // const handleResetear = () => {
-    //     setContador(1)
-    // }
 
     return (
         <>

@@ -1,3 +1,4 @@
+import { db } from "../firebase"
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify'
 
@@ -40,7 +41,7 @@ const CartProvider = ({ children }) => {
   }
   const addToast = (producto) =>{
 
-    const nombre = '¡Agregaste '+ producto.tipo + ' ' + producto.descripcion + ' al carrito!'
+    const nombre = '¡Agregaste '+ producto.type + ' ' + producto.description + ' al carrito!'
     toast.success(nombre,{
         position: toast.POSITION.TOP_CENTER
     })
@@ -55,7 +56,7 @@ const CartProvider = ({ children }) => {
   const deleteProduct = (producto) => {
     const copia = [...cart]
     copia.pop(producto)
-    toast.warning('¡Eliminaste ' + producto.tipo + ' ' + producto.descripcion + ' del carrito!',{
+    toast.warning('¡Eliminaste ' + producto.type + ' ' + producto.description + ' del carrito!',{
       position: toast.POSITION.TOP_CENTER
     })
     setTotalProducts(totalProducts - producto.stock) 
@@ -81,10 +82,11 @@ const CartProvider = ({ children }) => {
   }
 
   const findProduct = (producto) => {
+    console.log(producto.id)
     return cart.find((item) => item.id === producto.id)
   }
 
-  const totalPrice = cart.reduce((suma, item) => suma + item.precio * item.stock, 0)
+  const totalPrice = cart.reduce((suma, item) => suma + item.price * item.stock, 0)
 
   const valorDelContexto = {
     cart: cart,
