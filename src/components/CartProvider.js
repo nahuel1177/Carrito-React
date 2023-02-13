@@ -1,5 +1,5 @@
 import { db } from "../firebase"
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-toastify'
 
 export const contexto = createContext()
@@ -15,6 +15,7 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [user, setUser] = useState({})
   const [totalProducts, setTotalProducts] = useState(0)
+  const [id, setId] = useState("")
 
   const addProduct = (producto, contador) => {
 
@@ -101,7 +102,9 @@ const CartProvider = ({ children }) => {
     deleteProduct: deleteProduct,
     user: user,
     setUser: setUser,
-    totalPrice: totalPrice
+    totalPrice: totalPrice,
+    id: id,
+    setId: setId
   }
 
   return (

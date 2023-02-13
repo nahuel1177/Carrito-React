@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 
 const CheckOut = () => {
 
-    const { setUser, cart } = useContext(contexto)
+    const { setUser, cart, setId } = useContext(contexto)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [email, setEmail] = useState("")
@@ -27,18 +27,18 @@ const CheckOut = () => {
             },
             productos: cart,
             date: serverTimestamp()
-
         }
 
         const salesCollection = collection(db, "sales")
         const pedido = addDoc(salesCollection, sale)
-
+        console.log(pedido)
         pedido
 
             .then((respuesta) => {
-                //const producto = respuesta.id
-                //console.log(producto)
-                //setProduct(producto)
+
+                const id = respuesta.id
+                setId(id)
+                
                 //toast.dismiss()
                 //toast.success("Producto cargado!")
             })
@@ -46,6 +46,7 @@ const CheckOut = () => {
                 //toast.dismiss()
                 //toast.error("Error al cargar producto!")
             })
+            navigate('/venta')
     }
 
     const handleChangeName = (e) => {
@@ -78,7 +79,6 @@ const CheckOut = () => {
                 <Form.Group className="mb-4" controlId="button">
                     <div id="button"><Button onClick={handleClick}>Finalizar Compra</Button></div>
                 </Form.Group>
-
             </Form>
         </div>
     )
