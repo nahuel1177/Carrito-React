@@ -1,5 +1,5 @@
 # E-Commerce creado con ReactJs
-La App es un simulador de compras de equipos infoprmaticos. En ella se puede elegir por producto o por categoria y realizar la compra deseada.
+La App es un simulador de compras de equipos informaticos. En ella se puede elegir por producto o por categoria y realizar la compra deseada.
 
 El Repositorio del proyecto es https://github.com/nahuel1177/proyecto-react/
 La url de la app es https://simulador-compras-react.netlify.app
