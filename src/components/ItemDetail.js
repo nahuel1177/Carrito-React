@@ -7,8 +7,8 @@ const ItemDetail = (props) => {
 
     const { addProduct } = useContext(contexto)
 
-    const onAdd = (product, contador) =>{
-        addProduct(product, contador)
+    const onAdd = (producto, contador) =>{
+        addProduct(producto, contador)
     }
 
     return (
@@ -23,7 +23,7 @@ const ItemDetail = (props) => {
                         ${props.producto.precio}
                     </Card.Text>
                 </Card.Body>
-                <ItemCount product={props.producto} stock={props.producto.stock} onAdd={onAdd} />
+                <ItemCount producto={props.producto} stock={props.producto.stock} onAdd={onAdd} />
             </Card>
     )
 }

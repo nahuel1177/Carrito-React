@@ -1,17 +1,15 @@
 import { useState } from "react"
 import { Button } from 'react-bootstrap';
-import { useContext } from 'react';
-import { contexto } from "./CartProvider";
 
-const ItemCount = ({ product, stock, onAdd }) => {
+const ItemCount = ({ productos, producto, stock, onAdd }) => {
 
-    const [contador, setContador] = useState(1)
+    const [amount, setAmount] = useState(1)
     const [plusState, setPlusState] = useState()
     const [subtractState, setSubtractState] = useState()
 
     const handleSumar = () => {
-        if (contador < stock) {
-            setContador(contador + 1)
+        if (amount < stock) {
+            setAmount(amount + 1)
             setSubtractState(false)
         }else{
             setPlusState(true)
@@ -19,9 +17,8 @@ const ItemCount = ({ product, stock, onAdd }) => {
     }
 
     const handleRestar = () => {
-        if (contador > 1  && [contador > stock]) {
-            console.log(contador)
-            setContador(contador - 1)
+        if (amount > 1  && [amount > stock]) {
+            setAmount(amount - 1)
             setPlusState(false)
         }else{
             setSubtractState(true)
@@ -29,7 +26,7 @@ const ItemCount = ({ product, stock, onAdd }) => {
     }
 
     const handleAgregar = () => {
-        onAdd(product, contador)
+        onAdd(producto, amount)
     }
 
     // const handleResetear = () => {
@@ -41,7 +38,7 @@ const ItemCount = ({ product, stock, onAdd }) => {
             {/* <Button onClick={handlerResetear}>reset</Button> */}
             <div id="amount-container">
                 <Button onClick={handleSumar} disabled={plusState} id="btn-count">+</Button>
-                <div id="amount">{contador}</div>
+                <div id="amount">{amount}</div>
                 <Button onClick={handleRestar} disabled={subtractState} id="btn-count">-</Button>
             </div>
             <br />

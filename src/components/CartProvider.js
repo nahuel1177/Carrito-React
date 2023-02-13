@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import { toast } from 'react-toastify'
 
 export const contexto = createContext()
 const Provider = contexto.Provider
@@ -11,49 +12,79 @@ export const useCart = () => {
 const CartProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
+  const [user, setUser] = useState({})
   const [totalProducts, setTotalProducts] = useState(0)
 
-  const addProduct = (product, contador) => {
-    if (inCart(product)) {
-      console.log("Producto en carrito")
-      //modAmount(product, contador)
-    } else {
-      //localstorage
-      console.log("Producto nuevo")
-      console.log(cart)
-      const copia = Array.from(cart)
-      console.log(copia)
-      copia.push(modAmount(product, contador))
-      console.log(copia)
+  const addProduct = (producto, contador) => {
+
+    if (!inCart(producto)) {
+
+      const copia = [...cart]
+      producto.stock = contador
+      copia.push(producto)
+      setTotalProducts(totalProducts + contador)
+      addToast(producto)
       setCart(copia)
-      console.log(cart)
+    
+    } else {
+
+      const findedProduct = findProduct(producto)
+      findedProduct.stock = findedProduct.stock + contador
+      const copyFiltered = removeProduct(producto)
+      copyFiltered.push(findedProduct)
+      setTotalProducts(totalProducts + contador)
+      addToast(producto)
+      setCart(copyFiltered)
+
     }
   }
+  const addToast = (producto) =>{
 
-  const removeProduct = (id) => {
-    const filteredCart = cart.filter((product) => product.id !== id)
-    setCart(filteredCart)
-    console.log(cart)
+    const nombre = '¡Agregaste '+ producto.tipo + ' ' + producto.descripcion + ' al carrito!'
+    toast.success(nombre,{
+        position: toast.POSITION.BOTTOM_RIGHT
+    })
+  }
+
+  const removeProduct = (producto) => {
+
+    const filteredCart = cart.filter(item => item.id !== producto.id)
+    console.log(filteredCart)
+    return filteredCart
+  }
+
+  const deleteProduct = (producto) => {
+    const copia = [...cart]
+    copia.pop(producto)
+    toast.warning('¡Eliminaste ' + producto.tipo + ' ' + producto.descripcion + ' del carrito!',{
+      position: toast.POSITION.BOTTOM_RIGHT
+    })
+    setCart(copia)
+    if(cart.lenght===0){
+      cleanCart()
+    }
   }
 
   const cleanCart = () => {
     setCart([])
+    setTotalProducts(0)
   }
 
-  const inCart = (addedProduct) => {
-    if (cart.find((product) => [product.id] === addedProduct.id)) {
-      console.log("producto encontrado")
+  const inCart = (producto) => {
+    const findedProduct = findProduct(producto)
+
+    if (findedProduct !== undefined) {
       return true
+    } else {
+      return false
     }
   }
 
-  const modAmount = (product, contador) => {
-    //const copia = [...cart]
-    product.stock = contador
-    //setCart(copia)
-    console.log("Cantidad modificada: " + product.stock)
-    return product
+  const findProduct = (producto) => {
+    return cart.find((item) => item.id === producto.id)
   }
+
+  const totalPrice = cart.reduce((suma, item) => suma + item.precio * item.stock, 0)
 
   const valorDelContexto = {
     cart: cart,
@@ -64,7 +95,11 @@ const CartProvider = ({ children }) => {
     removeProduct: removeProduct,
     cleanCart: cleanCart,
     inCart: inCart,
-    modAmount: modAmount
+    findProduct: findProduct,
+    deleteProduct: deleteProduct,
+    user: user,
+    setUser: setUser,
+    totalPrice: totalPrice
   }
 
   return (
@@ -72,6 +107,7 @@ const CartProvider = ({ children }) => {
       {children}
     </Provider>
   )
+
 }
 
 export default CartProvider
