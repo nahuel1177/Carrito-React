@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Button } from 'react-bootstrap';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const ItemCount = ({ productos, producto, stock, onAdd }) => {
 
@@ -42,7 +43,7 @@ const ItemCount = ({ productos, producto, stock, onAdd }) => {
                 <Button onClick={handleRestar} disabled={subtractState} id="btn-count">-</Button>
             </div>
             <br />
-            <Button onClick={handleAgregar} id="btn-add">Agregar</Button>
+            <Button onClick={handleAgregar} id="btn-add">Agregar <AddShoppingCartIcon/></Button>
         </>
     )
 }

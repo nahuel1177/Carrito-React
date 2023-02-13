@@ -13,7 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:lightgrey;
+  background-color: lightgrey;
 }
 
 html,
@@ -32,31 +32,61 @@ a {
   color: steelblue;
 }
 
-#amount{
+#amount {
   margin: 7px;
 }
 
-#amount-container{
+#amount-container {
   display: flex;
   margin: auto;
+}
+
+.badge.rounded-pill.bg-danger{
+  height: 20px;
 }
 
 body h1 {
   text-align: center;
 }
 
-#btn-add{
+#btn-add {
   margin: auto;
   margin-bottom: 1.5rem;
   width: 160px;
 }
 
-#btn-count{
+#btn-compra,
+#btn-comprar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cart {
+  display: block;
+  padding: 5px;
+
+
+}
+
+#btn-count {
   display: flex;
   width: 35px;
 }
+.btn-danger {
+  --bs-btn-bg: rgb(194, 40, 34);
+  --bs-btn-border-color: rgb(194, 40, 34);
+  --bs-btn-hover-bg: #7e1012eb;
+  --bs-btn-hover-border-color: #7e1012eb;
+}
 
-.btn:disabled{
+.btn:disabled {
   background-color: #9ca2aa;
   border-color: #9ca2aa;
 }
@@ -76,22 +106,24 @@ body h1 {
   text-align: center;
 }
 
-#cart-ex-container{
+#cart-ex-container {
   margin: auto;
   margin-top: 1rem;
 }
 
-#cart-in-container{
+#cart-in-container {
   padding: 1rem;
   margin: auto;
   margin-top: 1rem;
   border-radius: 13px;
-  background-color:#fff;
-  & .row{
+  background-color: #fff;
+
+  & #title-consumer {
     text-align: center;
     margin: auto;
+    margin-bottom: 1rem;
   }
-  & .row .col{
+  & .row .col {
     text-align: center;
     margin: auto;
   }
@@ -100,18 +132,18 @@ body h1 {
   }
 }
 
-#checkout-container{
+#checkout-container {
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
-    
-    & #button{
-      display: flex;
-      justify-content: center;
-    }
+
+  & #button {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 code {
@@ -121,14 +153,14 @@ code {
 
 #dropdown {
   display: flex;
-  align-items:center;
+  align-items: center;
   color: #ffff;
   text-align: center;
   text-decoration: none;
   margin-left: 2rem;
 }
 
-#dropdownItem{
+#dropdownItem {
   color: #ffff;
 }
 
@@ -172,12 +204,12 @@ header > nav > a {
   align-items: center;
 }
 
-#itemList-container{
+#itemList-container {
   width: auto;
 }
 
-#link-compra{
-  color:#fff;
+#link-compra {
+  color: #fff;
 }
 
 main {
@@ -216,6 +248,3 @@ main {
 .shopping-cart {
   display: flex;
 }
-
-
-
