@@ -16,7 +16,7 @@ const Categories = () => {
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Mouse">Mouses</Link></DropdownItem>
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Memoria">Memorias</Link></DropdownItem>
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Almacenamiento">Almacenamiento</Link></DropdownItem>
-        <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Placa de video">Placas de Videos</Link></DropdownItem>
+        <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Video">Placas de Video</Link></DropdownItem>
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Motherboard">Motherboards</Link></DropdownItem>
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Procesador">Procesadores</Link></DropdownItem>
         <DropdownItem as="li"><Link id="dropdownItem" className="header__link" to="/Monitor">Monitores</Link></DropdownItem>

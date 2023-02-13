@@ -1,9 +1,17 @@
 import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import { contexto } from "./CartProvider";
 
 const ItemDetail = (props) => {
 
+    const { addProduct } = useContext(contexto)
+
+    const onAdd = (producto, contador) =>{
+        addProduct(producto, contador)
+    }
+
     return (
-        <div>
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={"../" + props.producto.imagen} />
                 <Card.Body>
@@ -15,8 +23,8 @@ const ItemDetail = (props) => {
                         ${props.producto.precio}
                     </Card.Text>
                 </Card.Body>
+                <ItemCount producto={props.producto} stock={props.producto.stock} onAdd={onAdd} />
             </Card>
-        </div>
     )
 }
 
