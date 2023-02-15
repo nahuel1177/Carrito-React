@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CartList = () => {
 
-    const { cart, cleanCart, totalProducts, deleteProduct, totalPrice } = useContext(contexto)
+    const { cart, cleanCart, deleteProduct, totalPrice } = useContext(contexto)
     const navigate = useNavigate()
 
     const handleClick = producto => () => {
@@ -38,7 +38,7 @@ const CartList = () => {
                         <Row key={producto.id} className='cartAlign bgCard'>
                             <Col><img src={producto.image} className='imgCart' alt='' width="80px" /></Col>
                             <Col>{producto.type}</Col>
-                            <Col>{producto.stock}</Col>
+                            <Col>{producto.amount}</Col>
                             <Col>${producto.price}</Col>
                             <Col><Button onClick={handleClick(producto)} variant='secondary'>{<DeleteIcon />}</Button></Col>
                         </Row>

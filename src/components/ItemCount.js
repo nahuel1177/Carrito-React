@@ -1,9 +1,8 @@
-import { db } from "../firebase"
 import { useState } from "react"
 import { Button } from 'react-bootstrap';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const ItemCount = ({ productos, producto, stock, onAdd }) => {
+const ItemCount = ({ producto, stock, onAdd }) => {
 
     const [amount, setAmount] = useState(1)
     const [plusState, setPlusState] = useState()

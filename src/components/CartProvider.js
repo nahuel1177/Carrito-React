@@ -1,5 +1,4 @@
-import { db } from "../firebase"
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify'
 
 export const contexto = createContext()
@@ -15,14 +14,14 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [user, setUser] = useState({})
   const [totalProducts, setTotalProducts] = useState(0)
-  const [id, setId] = useState("")
+  const [idSale, setIdSale] = useState("")
 
   const addProduct = (producto, contador) => {
 
     if (!inCart(producto)) {
 
       const copia = [...cart]
-      producto.stock = contador
+      producto.amount = contador
       copia.push(producto)
       setTotalProducts(totalProducts + contador)
       addToast(producto)
@@ -31,7 +30,7 @@ const CartProvider = ({ children }) => {
     } else {
 
       const findedProduct = findProduct(producto)
-      findedProduct.stock = findedProduct.stock + contador
+      findedProduct.amount = findedProduct.amount + contador
       const copyFiltered = removeProduct(producto)
       copyFiltered.push(findedProduct)
       setTotalProducts(totalProducts + contador)
@@ -43,6 +42,7 @@ const CartProvider = ({ children }) => {
   const addToast = (producto) => {
 
     const nombre = '¡Agregaste ' + producto.type + ' ' + producto.description + ' al carrito!'
+    toast.dismiss()
     toast.success(nombre, {
       position: toast.POSITION.TOP_CENTER
     })
@@ -57,6 +57,7 @@ const CartProvider = ({ children }) => {
   const deleteProduct = (producto) => {
     const copia = [...cart]
     copia.pop(producto)
+    toast.dismiss()
     toast.warning('¡Eliminaste ' + producto.type + ' ' + producto.description + ' del carrito!', {
       position: toast.POSITION.TOP_CENTER
     })
@@ -86,7 +87,7 @@ const CartProvider = ({ children }) => {
     return cart.find((item) => item.id === producto.id)
   }
 
-  const totalPrice = cart.reduce((suma, item) => suma + item.price * item.stock, 0)
+  const totalPrice = cart.reduce((suma, item) => suma + item.price * item.amount, 0)
 
   const valorDelContexto = {
     cart: cart,
@@ -102,8 +103,8 @@ const CartProvider = ({ children }) => {
     user: user,
     setUser: setUser,
     totalPrice: totalPrice,
-    id: id,
-    setId: setId
+    id: idSale,
+    setIdSale: setIdSale
   }
 
   return (
@@ -112,6 +113,6 @@ const CartProvider = ({ children }) => {
     </Provider>
   )
 
-}
+  }
 
 export default CartProvider
