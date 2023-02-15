@@ -1,43 +1,15 @@
-import { db } from "../firebase"
-import { collection, getDocs, where, query } from "firebase/firestore";
 import { Button, Container, Col, Row } from 'react-bootstrap'
 import { memo } from "react";
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { contexto } from "./CartProvider";
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const Sale = () => {
 
-  const { cleanCart, idSale } = useContext(contexto)
-  const [sale, setSale] = ([])
+  const { cleanCart, idSale, sale } = useContext(contexto)
   const navigate = useNavigate()
 
-  useEffect(() => {
-
-    let filter
-
-    const salesCollection = collection(db, "sales")
-
-    filter = query(salesCollection, where("id",'==',idSale))
-    console.log(filter)
-    const pedido = getDocs(filter)
-
-    pedido
-      .then((respuesta) => {
-        console.log("Aca Estoy")
-        const item = respuesta.data()
-        setSale(item)
-        toast.dismiss()
-        toast.success("Venta Exitosa!")
-      })
-
-      .catch((error) => {
-        toast.dismiss()
-        toast.error("Error al Procesar la venta!")
-      })
-
-  }, [setSale])
+  console.log(sale)
 
   const handleClick = () => {
     cleanCart()
