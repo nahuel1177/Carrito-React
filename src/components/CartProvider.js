@@ -15,6 +15,7 @@ const CartProvider = ({ children }) => {
   const [user, setUser] = useState({})
   const [totalProducts, setTotalProducts] = useState(0)
   const [idSale, setIdSale] = useState("")
+  const [sale, setSale] = useState({})
 
   const addProduct = (producto, contador) => {
 
@@ -92,6 +93,10 @@ const CartProvider = ({ children }) => {
   const valorDelContexto = {
     cart: cart,
     totalProducts: totalProducts,
+    user: user,
+    totalPrice: totalPrice,
+    idSale: idSale,
+    sale: sale,
     setCart: setCart,
     setTotalProducts: setTotalProducts,
     addProduct: addProduct,
@@ -100,11 +105,9 @@ const CartProvider = ({ children }) => {
     inCart: inCart,
     findProduct: findProduct,
     deleteProduct: deleteProduct,
-    user: user,
     setUser: setUser,
-    totalPrice: totalPrice,
-    id: idSale,
-    setIdSale: setIdSale
+    setIdSale: setIdSale,
+    setSale: setSale
   }
 
   return (
