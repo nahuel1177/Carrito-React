@@ -10,36 +10,37 @@ const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const params = useParams()
 
-    useEffect(() => {
-        console.log("Inicio")
-        toast.info("Cargando Productos...")
-        let filter
 
-        const productsCollection = collection(db, "products")
+        useEffect(() => {
 
-        if (!params.categoria) {
-            filter = productsCollection
-        } else {
-            filter = query(productsCollection, where('type', '==', params.categoria))
-        }
+            toast.info("Cargando Productos...")
+            let filter
 
-        const pedido = getDocs(filter)
+            const productsCollection = collection(db, "products")
 
-        pedido
-            .then((respuesta) => {
+            if (!params.categoria) {
+                filter = productsCollection
+            } else {
+                filter = query(productsCollection, where('type', '==', params.categoria))
+            }
 
-                const items = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
-                setProducts(items)
-                toast.dismiss()
-                toast.success("Productos cargados!")
-            })
+            const pedido = getDocs(filter)
 
-            .catch((error) => {
-                toast.dismiss()
-                toast.error("Error al cargar productos!")
-            })
+            pedido
+                .then((respuesta) => {
+                    const items = respuesta.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+                    setProducts(items)
+                    toast.dismiss()
+                    toast.success("Productos cargados!")
+                })
 
-    }, [params.categoria, products])
+                .catch((error) => {
+                    toast.dismiss()
+                    toast.error("Error al cargar productos!")
+                })
+
+        }, [params.categoria])
+    
 
     return (
 

@@ -10,43 +10,43 @@ import { toast } from 'react-toastify';
 
 const CheckOut = () => {
 
-    const { cart, setId } = useContext(contexto)
+    const { cart, totalPrice, idSale, setIdSale } = useContext(contexto)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [email, setEmail] = useState("")
     const navigate = useNavigate()
 
     const handleClick = (e) => {
+    
+                const sale = {
+    
+                    user: {
+                        name: name,
+                        surname: surname,
+                        email: email,
+                    },
+                    products: cart,
+                    date: serverTimestamp(),
+                    price: totalPrice
+                }
+    
+                const salesCollection = collection(db, "sales")
+                const pedido = addDoc(salesCollection, sale)
+                pedido
+    
+                    .then((respuesta) => {
+                        setIdSale(respuesta.id)
+                        console.log(idSale)
+                        toast.dismiss()
+                        toast.success("Venta Exitosa!")
+                    })
+                    .catch((error) => {
+                        setIdSale("Vacio")
+                        toast.dismiss()
+                        toast.error("Error al procesar venta!")
+                    })
 
-        const sale = {
-
-            Usuario: {
-
-                name: name,
-                surname: surname,
-                email: email,
-            },
-            productos: cart,
-            date: serverTimestamp()
-        }
-
-        const salesCollection = collection(db, "sales")
-        const pedido = addDoc(salesCollection, sale)
-        pedido
-
-            .then((respuesta) => {
-
-                const id = respuesta.id
-                setId(id)
-                toast.dismiss()
-                toast.success("Venta Exitosa!")
-            })
-            .catch((error) => {
-                setId("Vacio")
-                toast.dismiss()
-                toast.error("Error al procesar venta!")
-            })
-            navigate('/venta')
+                navigate('/venta')
     }
 
     const handleChangeName = (e) => {
