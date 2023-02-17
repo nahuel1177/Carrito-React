@@ -4,7 +4,7 @@ import { contexto } from "./CartProvider";
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const CartList = () => {
 
@@ -15,9 +15,6 @@ const CartList = () => {
         deleteProduct(producto)
     }
     
-    const handleComprar = () => {
-        navigate('/checkuot')
-    }
     const handleVaciar = () =>{
         cleanCart()
         navigate('/')
@@ -55,7 +52,7 @@ const CartList = () => {
                 </Row>
                 <div className="btn-container">
                     <div className="btn-cart">
-                        <Button onClick={handleComprar} variant='primary'>Comprar <ShoppingCartCheckoutIcon/></Button>
+                    <Link className="header__link" to="/checkuot"><Button variant='primary'>Comprar <ShoppingCartCheckoutIcon/></Button></Link>
                     </div>
                     <div>Total: ${totalPrice}</div>
                     
