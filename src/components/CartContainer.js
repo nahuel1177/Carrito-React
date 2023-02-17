@@ -21,7 +21,7 @@ const CartContainer = () => {
       navigate('/')
     }else{setCartEmpty(false)}
    
-  },[])
+  },[navigate, totalProducts])
   
   return (
 
