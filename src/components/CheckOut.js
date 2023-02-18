@@ -10,10 +10,11 @@ import Form from 'react-bootstrap/Form';
 
 const CheckOut = () => {
 
-    const { cart, totalPrice, setIdSale, idSale, setSale } = useContext(contexto)
+    const { cart, totalPrice, setIdSale, setSale } = useContext(contexto)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [email, setEmail] = useState("")
+    const [id, setId] = useState("")
     const navigate = useNavigate()
   
 
@@ -29,7 +30,6 @@ const CheckOut = () => {
             products: cart,
             date: serverTimestamp(),
             price: totalPrice,
-            id: idSale
         }
 
         setSale(venta)
